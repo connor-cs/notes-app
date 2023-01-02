@@ -7,7 +7,7 @@ export default function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "sneed's feed and seed",
+      text: "wagmi",
       date: "1/1/2023",
     },
     {
@@ -17,7 +17,7 @@ export default function App() {
     },
     {
       id: nanoid(),
-      text: "sergey betray",
+      text: "1k EOY",
       date: "1/1/2023",
     },
     {
@@ -27,9 +27,20 @@ export default function App() {
     },
   ]);
 
+  const addNote = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toDateString()
+    };
+    const newNotes = [...notes, newNote]
+    setNotes(newNotes);
+  };
+
   return (
     <div className="container">
-      <NotesList notes={notes} />
+      <NotesList notes={notes} addNote={addNote} />
     </div>
   );
 }
