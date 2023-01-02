@@ -1,5 +1,5 @@
 import React from "react";
-import NotesList from "./components/NotesList";
+import NotesContainer from "./components/NotesContainer";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
@@ -27,6 +27,10 @@ export default function App() {
     },
   ]);
 
+  const deleteNote = (id) => {
+    notes.filter(note=>note.id!==id)
+  }
+
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -40,7 +44,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <NotesList notes={notes} addNote={addNote} />
+      <NotesContainer notes={notes} addNote={addNote} deleteNote={deleteNote}/>
     </div>
   );
 }

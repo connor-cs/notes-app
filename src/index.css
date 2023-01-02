@@ -36,6 +36,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* below property preserves the spacing */
+  white-space: pre-wrap;
 }
 
 .note-footer {
