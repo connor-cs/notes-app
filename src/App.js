@@ -1,9 +1,11 @@
 import React from "react";
 import NotesContainer from "./components/NotesContainer";
+import Search from "./components/Search";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
+  const [search, setSearch] = useState('')
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -12,7 +14,7 @@ export default function App() {
     },
     {
       id: nanoid(),
-      text: "formerly chuck's",
+      text: "note text",
       date: "1/1/2023",
     },
     {
@@ -20,31 +22,30 @@ export default function App() {
       text: "1k EOY",
       date: "1/1/2023",
     },
-    {
-      id: nanoid(),
-      text: "snack city",
-      date: "1/1/2023",
-    },
   ]);
+  
 
   const deleteNote = (id) => {
-    notes.filter(note=>note.id!==id)
-  }
+    console.log(id);
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    setNotes(updatedNotes);
+  };
 
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
       text: text,
-      date: date.toDateString()
+      date: date.toDateString(),
     };
-    const newNotes = [...notes, newNote]
+    const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
 
   return (
     <div className="container">
-      <NotesContainer notes={notes} addNote={addNote} deleteNote={deleteNote}/>
+      <Search setSearch={setSearch}/>
+      <NotesContainer notes={notes} addNote={addNote} deleteNote={deleteNote} />
     </div>
   );
 }
