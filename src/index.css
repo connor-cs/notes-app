@@ -25,6 +25,13 @@ body {
   transform: scale(1.2);
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .note.new {
   background-color: #67d7cc;
 }

@@ -2,12 +2,12 @@ import React from "react";
 import NotesContainer from "./components/NotesContainer";
 import Search from "./components/Search";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [search, setSearch] = useState('')
-  const [darkMode, setDarkMode] = useState(false)
+  const [search, setSearch] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -25,7 +25,17 @@ export default function App() {
       date: "1/1/2023",
     },
   ]);
-  
+
+  useEffect(()=> {
+    const data = JSON.parse(localStorage.getItem('react-notes-app-data'))
+    if (data) {
+      setNotes(data)
+    }
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+  }, [notes]);
 
   const deleteNote = (id) => {
     console.log(id);
@@ -47,8 +57,12 @@ export default function App() {
   return (
     <div className="container">
       <Header />
-      <Search setSearch={setSearch}/>
-      <NotesContainer notes={notes} addNote={addNote} deleteNote={deleteNote} />
+      <Search setSearch={setSearch} />
+      <NotesContainer
+        notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
+        addNote={addNote}
+        deleteNote={deleteNote}
+      />
     </div>
   );
 }
