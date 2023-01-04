@@ -7,7 +7,7 @@ export default function Search({ setSearch }) {
       <MdSearch className="search-icon" size="1.3em" />
       <input
         type="text"
-        value={''}
+        
         placeholder="type to search..."
         onChange={(e)=>setSearch(e.target.value)}
       ></input>

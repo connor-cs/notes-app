@@ -1,11 +1,13 @@
 import React from "react";
 import NotesContainer from "./components/NotesContainer";
 import Search from "./components/Search";
+import Header from "./components/Header";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
   const [search, setSearch] = useState('')
+  const [darkMode, setDarkMode] = useState(false)
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -44,6 +46,7 @@ export default function App() {
 
   return (
     <div className="container">
+      <Header />
       <Search setSearch={setSearch}/>
       <NotesContainer notes={notes} addNote={addNote} deleteNote={deleteNote} />
     </div>

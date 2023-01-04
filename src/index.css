@@ -87,6 +87,10 @@ textarea:focus {
   margin-bottom: 1em;
 }
 
+.search:hover {
+  cursor: pointer;
+}
+
 .search input {
   background-color: lightgray;
   border: none;
