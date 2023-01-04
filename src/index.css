@@ -16,20 +16,29 @@ body {
   padding-right: 15px;
 }
 
+.dark-mode {
+  background-color: black;
+}
+
+.dark-mode h1 {
+  color: white;
+}
+
 .delete-icon {
   transition: all 0.2s ease-in-out;
 }
 
 .delete-icon:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 .header {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+  /* justify-content: space-between; */
+  /* flex-direction: row; */
+  /* justify-content: flex-end;
+  align-items: flex-end; */
 }
 
 .note.new {
@@ -76,7 +85,7 @@ textarea:focus {
   border: none;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .save:hover {

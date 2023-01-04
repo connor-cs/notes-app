@@ -26,12 +26,12 @@ export default function App() {
     },
   ]);
 
-  useEffect(()=> {
-    const data = JSON.parse(localStorage.getItem('react-notes-app-data'))
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("react-notes-app-data"));
     if (data) {
-      setNotes(data)
+      setNotes(data);
     }
-  },[])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
@@ -55,14 +55,16 @@ export default function App() {
   };
 
   return (
-    <div className="container">
-      <Header />
-      <Search setSearch={setSearch} />
-      <NotesContainer
-        notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
-        addNote={addNote}
-        deleteNote={deleteNote}
-      />
+    <div className={darkMode ? "dark-mode" : "null"}>
+      <div className="container">
+        <Header setDarkMode={setDarkMode} />
+        <Search setSearch={setSearch} />
+        <NotesContainer
+          notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
+          addNote={addNote}
+          deleteNote={deleteNote}
+        />
+      </div>
     </div>
   );
 }
