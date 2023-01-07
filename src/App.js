@@ -13,16 +13,19 @@ export default function App() {
       id: nanoid(),
       text: "wagmi",
       date: "1/1/2023",
+      category: "personal"
     },
     {
       id: nanoid(),
       text: "note text",
       date: "1/1/2023",
+      category: "fitness"
     },
     {
       id: nanoid(),
       text: "1k EOY",
       date: "1/1/2023",
+      category: "work"
     },
   ]);
 
@@ -43,12 +46,13 @@ export default function App() {
     setNotes(updatedNotes);
   };
 
-  const addNote = (text) => {
+  const addNote = (text, cat) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
       text: text,
       date: date.toDateString(),
+      category: cat
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
