@@ -41,7 +41,7 @@ export default function App() {
   }, [notes]);
 
   const deleteNote = (id) => {
-    console.log(id);
+    console.log('note id', id);
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
   };

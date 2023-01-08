@@ -11,6 +11,7 @@ export default function NotesContainer({ notes, addNote, deleteNote }) {
             key={note.id}
             text={note.text}
             date={note.date}
+            category={note.category}
             deleteNote={deleteNote}
           />
         );

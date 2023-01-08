@@ -20,18 +20,18 @@ export default function AddNote({ addNote }) {
     } else alert("Note cannot be empty!");
   }
 
-  //get feedback on this
+  //check this
   //e.target is a jsx element wrapped in <a tags so e.target.value is undefined
   // function handleCatSelect(e) {
   //   const category = e.target.getAttribute("value")
   //   setCat(category)
   // }
 
-   function handleCatSelect(e) {
+  function handleCatSelect(e) {
     console.log(e.target.value)
-    const noteCat=e.target.value
+    const noteCat = e.target.value
     setCat(noteCat)
-   }
+  }
 
   return (
     <div className="note new" key={"newnote"}>
@@ -55,9 +55,9 @@ export default function AddNote({ addNote }) {
           </CDropdownMenu>
         </CDropdown > */}
 
-        {/* this only works when something is changed */}
+        {/* this only works when selection is changed, then clicked */}
         <select className="dropdown" onChange={handleCatSelect}>
-          <option value="work" style={{ color: "blue" }}>Work</option>
+          <option className="option" value="work" style={{ color: "blue" }}>Work</option>
           <option value="study" style={{ color: "red" }}>Study</option>
           <option value="fitness" style={{ color: "green" }}>Fitness</option>
           <option value="personal" style={{ color: "purple" }}>Personal</option>
