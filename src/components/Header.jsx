@@ -6,10 +6,10 @@ export default function Header({ setDarkMode }) {
     <div className="header">
       <h1>Notes</h1>
       <CFormSwitch
+        className="toggle"
         label="Toggle dark mode"
         id="formSwitchCheckDefault"
-        onChange={(darkMode) => setDarkMode(!darkMode)}
-        // onChange={() => console.log('abc')}
+        onChange={(e) => setDarkMode(e.target.checked)}
       />
     </div>
   );

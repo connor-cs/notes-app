@@ -14,13 +14,23 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  min-height: 100vh;
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: rgba(22, 20, 20, 0.938);
 }
 
 .dark-mode h1 {
+  color: white;
+  background-color: rgba(22, 20, 20, 0.938);
+}
+
+.dark-mode .header {
+  background-color: rgba(22, 20, 20, 0.938);
+}
+
+.dark-mode .toggle {
   color: white;
 }
 
@@ -35,6 +45,9 @@ body {
 
 .header {
   display: flex;
+  border: none;
+  margin-bottom: 5px;
+box-shadow: none;
   /* justify-content: space-between; */
   /* flex-direction: row; */
   /* justify-content: flex-end;
@@ -114,4 +127,8 @@ textarea:focus {
 
 .search input:focus {
   outline: none;
+}
+
+.toggle {
+  border: none;
 }
