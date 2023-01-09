@@ -1,17 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import { CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle } from "@coreui/react";
+import {
+  CDropdown,
+  CDropdownItem,
+  CDropdownMenu,
+  CDropdownToggle,
+} from "@coreui/react";
 
 export default function AddNote({ addNote }) {
   const [text, setText] = useState("");
-  const [cat, setCat] = useState(null)
-  const charLimit = 200
+  const [cat, setCat] = useState(null);
+  const charLimit = 200;
 
   function handleChange(e) {
     if (charLimit - e.target.value.length >= 0) {
       setText(e.target.value);
     }
-
   }
   function handleSave() {
     if (text.trim().length > 0) {
@@ -28,9 +32,9 @@ export default function AddNote({ addNote }) {
   // }
 
   function handleCatSelect(e) {
-    console.log(e.target.value)
-    const noteCat = e.target.value
-    setCat(noteCat)
+    console.log(e.target.value);
+    const noteCat = e.target.value;
+    setCat(noteCat);
   }
 
   return (
@@ -57,11 +61,21 @@ export default function AddNote({ addNote }) {
 
         {/* this only works when selection is changed, then clicked */}
         <select className="dropdown" onChange={handleCatSelect}>
-          <option className="option" value="work" style={{ color: "blue" }}>Work</option>
-          <option value="study" style={{ color: "red" }}>Study</option>
-          <option value="fitness" style={{ color: "green" }}>Fitness</option>
-          <option value="personal" style={{ color: "purple" }}>Personal</option>
-          <option value="other" style={{ color: "black" }}>Other</option>
+          <option className="option" value="work" style={{ color: "#3a86ff" }}>
+            Work
+          </option>
+          <option value="study" style={{ color: "#8338ec" }}>
+            Study
+          </option>
+          <option value="fitness" style={{ color: "#fb5607" }}>
+            Fitness
+          </option>
+          <option value="personal" style={{ color: "#ff006e" }}>
+            Personal
+          </option>
+          <option value="other" style={{ color: "#ffbe0b" }}>
+            Other
+          </option>
         </select>
         <button className="save" onClick={handleSave}>
           Save

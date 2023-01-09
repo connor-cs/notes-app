@@ -13,19 +13,19 @@ export default function App() {
       id: nanoid(),
       text: "wagmi",
       date: "1/1/2023",
-      category: "personal"
+      category: "personal",
     },
     {
       id: nanoid(),
-      text: "note text",
+      text: "leg day",
       date: "1/1/2023",
-      category: "fitness"
+      category: "fitness",
     },
     {
       id: nanoid(),
-      text: "1k EOY",
+      text: "do work tasks",
       date: "1/1/2023",
-      category: "work"
+      category: "work",
     },
   ]);
 
@@ -41,7 +41,7 @@ export default function App() {
   }, [notes]);
 
   const deleteNote = (id) => {
-    console.log('note id', id);
+    console.log("note id", id);
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
   };
@@ -52,7 +52,7 @@ export default function App() {
       id: nanoid(),
       text: text,
       date: date.toDateString(),
-      category: cat
+      category: cat,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);

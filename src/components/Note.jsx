@@ -2,7 +2,6 @@ import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 export default function Note({ id, text, date, category, deleteNote }) {
-
   return (
     <div className={`note ${category}`} key={id}>
       <span>{text}</span>
