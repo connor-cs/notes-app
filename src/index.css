@@ -13,8 +13,7 @@ body {
   border: solid 1px #edede9;
   background-color: #edede9;
   border-radius: 5px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 1px 4px 1px 4px;
 }
 
 .container {
@@ -62,6 +61,7 @@ body {
 
 .header {
   display: flex;
+  border: none;
   /* justify-content: space-between; */
   /* flex-direction: row; */
   /* justify-content: flex-end;
@@ -150,8 +150,18 @@ textarea:focus {
   background-color: #edede9;
   align-items: center;
   display: flex;
+
   padding: 10px;
   margin-bottom: 1em;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-container select{
+  padding: 10px;
 }
 
 .search:hover {
@@ -161,6 +171,7 @@ textarea:focus {
 .search input {
   background-color: #edede9;
   border: none;
+  width: 65%
 }
 
 .search input:focus {

@@ -61,7 +61,10 @@ export default function AddNote({ addNote }) {
 
         {/* this only works when selection is changed, then clicked */}
         <select className="dropdown" onChange={handleCatSelect}>
-          <option className="option" value="work" style={{ color: "#3a86ff" }}>
+          <option disabled="disabled" selected="selected">
+            Select Tag
+          </option>
+          <option value="work" style={{ color: "#3a86ff" }}>
             Work
           </option>
           <option value="study" style={{ color: "#8338ec" }}>
