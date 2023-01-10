@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
+  const [filteredCat, setFilteredCat] = useState(null)
   const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([
     {
@@ -28,6 +29,8 @@ export default function App() {
       category: "work",
     },
   ]);
+
+  console.log('from app component:', filteredCat)
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("react-notes-app-data"));
@@ -62,7 +65,7 @@ export default function App() {
     <div className={darkMode ? "dark-mode" : "null"}>
       <div className="container">
         <Header setDarkMode={setDarkMode} />
-        <Search setSearch={setSearch} />
+        <Search setSearch={setSearch} setFilteredCat={setFilteredCat}/>
         <NotesContainer
           notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
           addNote={addNote}

@@ -1,10 +1,11 @@
 import React from "react";
 import { MdSearch } from "react-icons/md";
 
-export default function Search({ setSearch }) {
+export default function Search({ setSearch, setFilteredCat }) {
   
   const handleTagSelect = (e) => {
     console.log(e.target.value);
+    setFilteredCat(e.target.value)
   };
 
   return (
