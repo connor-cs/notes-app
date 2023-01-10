@@ -8,8 +8,8 @@ export default function NotesContainer({ notes, addNote, deleteNote }) {
       {notes.map((note) => {
         return (
           <Note
-            id={note.id}
             key={note.id}
+            id={note.id}
             text={note.text}
             date={note.date}
             deleteNote={deleteNote}
