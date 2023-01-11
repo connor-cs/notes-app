@@ -1,11 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import {
-  CDropdown,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-} from "@coreui/react";
 
 export default function AddNote({ addNote }) {
   const [text, setText] = useState("");
@@ -48,16 +42,6 @@ export default function AddNote({ addNote }) {
       ></textarea>
       <div className="note-footer">
         <small>{charLimit - text.length} remaining</small>
-        {/* <CDropdown >
-          <CDropdownToggle color="light" size="sm" className="dropdown">Category</CDropdownToggle>
-          <CDropdownMenu>
-            <CDropdownItem onClick={handleCatSelect} value="work" style={{ color: "blue" }}>Work</CDropdownItem>
-            <CDropdownItem onClick={handleCatSelect} value="study" style={{ color: "red" }}>Study</CDropdownItem>
-            <CDropdownItem onClick={handleCatSelect} value="fitness" style={{ color: "green" }}>Fitness</CDropdownItem>
-            <CDropdownItem onClick={handleCatSelect} value="personal" style={{ color: "purple" }}>Personal</CDropdownItem>
-            <CDropdownItem onClick={handleCatSelect} value="other" style={{ color: "black" }}>Other</CDropdownItem>
-          </CDropdownMenu>
-        </CDropdown > */}
 
         {/* this only works when selection is changed, then clicked */}
         <select className="dropdown" onChange={handleCatSelect}>
