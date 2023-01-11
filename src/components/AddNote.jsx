@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function AddNote({ addNote }) {
   const [text, setText] = useState("");
+  const [cat, setCat] = useState(null);
   const charLimit = 200
 
   function handleChange(e) {
