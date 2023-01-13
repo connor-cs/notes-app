@@ -2,10 +2,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+}
+
+.cat {
+  border: solid 1px #edede9;
+  background-color: #edede9;
+  border-radius: 5px;
+  padding: 1px 4px 1px 4px;
 }
 
 .container {
@@ -23,15 +31,12 @@ body {
 
 .dark-mode h1 {
   color: white;
-  background-color: rgba(22, 20, 20, 0.938);
+
+  background-color: transparent;
 }
 
 .dark-mode .header {
-  background-color: rgba(22, 20, 20, 0.938);
-}
-
-.dark-mode .toggle {
-  color: white;
+  background-color: transparent;
 }
 
 .delete-icon {
@@ -43,11 +48,24 @@ body {
   transform: scale(1.4);
 }
 
-.header {
+.dropdown {
+  background-color: #d3d3d3;
+  border: none;
+  border-color: transparent;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dark-mode .form-check-label {
+  color: white;
+}
+div.header {
   display: flex;
   border: none;
-  margin-bottom: 5px;
-box-shadow: none;
   /* justify-content: space-between; */
   /* flex-direction: row; */
   /* justify-content: flex-end;
@@ -55,7 +73,7 @@ box-shadow: none;
 }
 
 .note.new {
-  background-color: #67d7cc;
+  background-color: #edede9;
 }
 
 .note {
@@ -83,10 +101,34 @@ box-shadow: none;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
-textarea {
+.work {
+  background-color: #3a86ff;
+}
+
+.study {
+  background-color: #8338ec;
+}
+
+.personal {
+  background-color: #ff006e;
+}
+
+.fitness {
+  background-color: #fb5607;
+}
+
+.other {
+  background-color: #ffbe0b;
+}
+
+select option {
+  font-weight: bold;
+}
+
+div.note textarea {
   border: none;
   resize: none;
-  background-color: #67d7cc;
+  background-color: #edede9;
 }
 
 textarea:focus {
@@ -109,11 +151,21 @@ textarea:focus {
 
 .search {
   border-radius: 10px;
-  background-color: lightgray;
+  background-color: #edede9;
   align-items: center;
   display: flex;
+
   padding: 10px;
   margin-bottom: 1em;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-container select{
+  padding: 10px;
 }
 
 .search:hover {
@@ -121,14 +173,15 @@ textarea:focus {
 }
 
 .search input {
-  background-color: lightgray;
+  background-color: #edede9;
   border: none;
+  width: 65%
 }
 
 .search input:focus {
   outline: none;
 }
 
-.toggle {
-  border: none;
+select.dropdown{
+  margin-bottom: 10px;
 }

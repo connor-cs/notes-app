@@ -6,25 +6,31 @@ import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
+  const [filteredCat, setFilteredCat] = useState(null)
   const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
       text: "wagmi",
       date: "1/1/2023",
+      category: "personal",
     },
     {
       id: nanoid(),
-      text: "note text",
+      text: "leg day",
       date: "1/1/2023",
+      category: "fitness",
     },
     {
       id: nanoid(),
-      text: "1k EOY",
+      text: "do work tasks",
       date: "1/1/2023",
+      category: "work",
     },
   ]);
+
+  console.log('from app component:', filteredCat)
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("react-notes-app-data"));
@@ -38,29 +44,33 @@ export default function App() {
   }, [notes]);
 
   const deleteNote = (id) => {
-    console.log(id);
+    console.log("note id", id);
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
   };
 
-  const addNote = (text) => {
+  const addNote = (text, cat) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
       text: text,
       date: date.toDateString(),
+      category: cat,
     };
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
 
+
   return (
     <div className={darkMode ? "dark-mode" : "null"}>
       <div className="container">
         <Header setDarkMode={setDarkMode} />
-        <Search setSearch={setSearch} />
+        <Search setSearch={setSearch} setFilteredCat={setFilteredCat}/>
         <NotesContainer
-          notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
+          notes={notes}
+          filteredCat={filteredCat}
+          search={search}
           addNote={addNote}
           deleteNote={deleteNote}
         />
