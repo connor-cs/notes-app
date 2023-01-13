@@ -12,21 +12,27 @@ export default function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: "wagmi",
+      text: "make dr. appointment",
       date: "1/1/2023",
       category: "personal",
     },
     {
       id: nanoid(),
-      text: "leg day",
+      text: "go to gym",
       date: "1/1/2023",
       category: "fitness",
     },
     {
       id: nanoid(),
-      text: "do work tasks",
+      text: "finish work stuff",
       date: "1/1/2023",
       category: "work",
+    },
+    {
+      id: nanoid(),
+      text: "work on new React project",
+      date: "1/1/2023",
+      category: "study",
     },
   ]);
 
