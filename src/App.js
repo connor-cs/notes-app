@@ -61,13 +61,16 @@ export default function App() {
     setNotes(newNotes);
   };
 
+
   return (
     <div className={darkMode ? "dark-mode" : "null"}>
       <div className="container">
         <Header setDarkMode={setDarkMode} />
         <Search setSearch={setSearch} setFilteredCat={setFilteredCat}/>
         <NotesContainer
-          notes={notes.filter((n) => n.text.toLowerCase().includes(search))}
+          notes={notes}
+          filteredCat={filteredCat}
+          search={search}
           addNote={addNote}
           deleteNote={deleteNote}
         />

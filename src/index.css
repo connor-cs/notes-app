@@ -31,11 +31,11 @@ body {
 
 .dark-mode h1 {
   color: white;
-  background-color: rgba(22, 20, 20, 0.938)
+  background-color: transparent;
 }
 
 .dark-mode .header {
-  background-color: rgba(22, 20, 20, 0.938);
+  background-color: transparent;
 }
 
 .delete-icon {
@@ -59,7 +59,10 @@ body {
   cursor: pointer;
 }
 
-.header {
+.dark-mode .form-check-label {
+  color: white;
+}
+div.header {
   display: flex;
   border: none;
   /* justify-content: space-between; */
@@ -121,7 +124,7 @@ select option {
   font-weight: bold;
 }
 
-textarea {
+div.note textarea {
   border: none;
   resize: none;
   background-color: #edede9;
@@ -176,4 +179,8 @@ textarea:focus {
 
 .search input:focus {
   outline: none;
+}
+
+select.dropdown{
+  margin-bottom: 10px;
 }

@@ -34,8 +34,7 @@ export default function AddNote({ addNote }) {
   return (
     <div className="note new" key={"newnote"}>
       <textarea
-        rows="8"
-        cols="10"
+        rows="5"
         placeholder="Type to add a note..."
         value={text}
         onChange={handleChange}
