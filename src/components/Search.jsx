@@ -1,7 +1,7 @@
 import React from "react";
 import { MdSearch } from "react-icons/md";
 
-export default function Search({ setSearch, setFilteredCat }) {
+export default function Search({ setSearch, search, setFilteredCat, filteredCat }) {
   
   const handleTagSelect = (e) => {
     console.log(e.target.value);
@@ -23,7 +23,7 @@ export default function Search({ setSearch, setFilteredCat }) {
         <option disabled="disabled" selected="selected">
           Filter
         </option>
-        <option value="all" style={{color: "black"}}>All</option>
+        { filteredCat || search ? <option value="all" style={{color: "black"}}>All</option> : null}
         <option value="work" style={{ color: "#3a86ff" }}>
           Work
         </option>

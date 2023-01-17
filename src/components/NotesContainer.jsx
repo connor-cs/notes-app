@@ -3,7 +3,7 @@ import Note from "./Note";
 import AddNote from "./AddNote";
 
 
-export default function NotesContainer({ notes, addNote, deleteNote, filteredCat, search }) {
+export default function NotesContainer({ notes, addNote, deleteNote, filteredCat, setFilteredCat, search }) {
   
   function renderNotes(notesArr){
     return (
@@ -25,8 +25,10 @@ export default function NotesContainer({ notes, addNote, deleteNote, filteredCat
     );
   }
 
-  if (filteredCat==="all") return renderNotes(notes)
-  
+  if (filteredCat==="all") {
+    renderNotes(notes)
+    setFilteredCat(null)
+  }
   else if (filteredCat && search) {
     const catAndSearch = notes.filter(note => (note.category === filteredCat) && (note.text.toLowerCase().includes(search)))
     return renderNotes(catAndSearch)

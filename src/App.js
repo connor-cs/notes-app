@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [search, setSearch] = useState('');
-  const [filteredCat, setFilteredCat] = useState(null)
+  const [search, setSearch] = useState("");
+  const [filteredCat, setFilteredCat] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([
     {
@@ -68,11 +68,17 @@ export default function App() {
   return (
     <div className={darkMode ? "dark-mode" : "null"}>
       <div className="container">
-        <Header setDarkMode={setDarkMode}/>
-        <Search setSearch={setSearch} setFilteredCat={setFilteredCat}/>
+        <Header setDarkMode={setDarkMode} />
+        <Search
+          setSearch={setSearch}
+          search={search}
+          setFilteredCat={setFilteredCat}
+          filteredCat={filteredCat}
+        />
         <NotesContainer
           notes={notes}
           filteredCat={filteredCat}
+          setFilteredCat={setFilteredCat}
           search={search}
           addNote={addNote}
           deleteNote={deleteNote}
