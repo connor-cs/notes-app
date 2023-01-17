@@ -36,8 +36,6 @@ export default function App() {
     },
   ]);
 
-  console.log('from app component:', filteredCat)
-
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("react-notes-app-data"));
     if (data) {
@@ -66,7 +64,6 @@ export default function App() {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
-
 
   return (
     <div className={darkMode ? "dark-mode" : "null"}>
