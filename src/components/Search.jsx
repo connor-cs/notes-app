@@ -21,8 +21,9 @@ export default function Search({ setSearch, setFilteredCat }) {
       </div>
       <select className="dropdown" onChange={handleTagSelect}>
         <option disabled="disabled" selected="selected">
-          Select Tag
+          Filter
         </option>
+        <option value="all" style={{color: "black"}}>All</option>
         <option value="work" style={{ color: "#3a86ff" }}>
           Work
         </option>

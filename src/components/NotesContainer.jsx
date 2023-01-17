@@ -24,8 +24,10 @@ export default function NotesContainer({ notes, addNote, deleteNote, filteredCat
       </div>
     );
   }
+
+  if (filteredCat==="all") return renderNotes(notes)
   
-  if (filteredCat && search) {
+  else if (filteredCat && search) {
     const catAndSearch = notes.filter(note => (note.category === filteredCat) && (note.text.toLowerCase().includes(search)))
     return renderNotes(catAndSearch)
   }

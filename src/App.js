@@ -68,7 +68,7 @@ export default function App() {
   return (
     <div className={darkMode ? "dark-mode" : "null"}>
       <div className="container">
-        <Header setDarkMode={setDarkMode} />
+        <Header setDarkMode={setDarkMode}/>
         <Search setSearch={setSearch} setFilteredCat={setFilteredCat}/>
         <NotesContainer
           notes={notes}
