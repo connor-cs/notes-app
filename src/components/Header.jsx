@@ -1,7 +1,8 @@
 import React from "react";
 import { CFormSwitch } from "@coreui/react";
 
-export default function Header({ setDarkMode }) {
+export default function Header({ setDarkMode, refresh }) {
+
   return (
     <div className="header">
       <h1>Notes</h1>

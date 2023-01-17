@@ -2,15 +2,13 @@ import React from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
 
-//refactor this to get rid of repetition
-export default function NotesContainer({ notes, addNote, deleteNote, filteredCat, search }) {
+
+export default function NotesContainer({ notes, addNote, deleteNote, filteredCat, setFilteredCat, search }) {
   
-  if (filteredCat) {
-    const notesByCat = notes.filter(note => note.category === filteredCat)
-    console.log('notesbycat', notesByCat)
+  function renderNotes(notesArr){
     return (
       <div className="notes-list">
-        {notesByCat.map((note) => {
+        {notesArr.map((note) => {
           return (
             <Note
               key={note.id}
@@ -25,45 +23,25 @@ export default function NotesContainer({ notes, addNote, deleteNote, filteredCat
         <AddNote addNote={addNote} />
       </div>
     );
+  }
+
+  if (filteredCat==="all") {
+    renderNotes(notes)
+    setFilteredCat(null)
+  }
+  else if (filteredCat && search) {
+    const catAndSearch = notes.filter(note => (note.category === filteredCat) && (note.text.toLowerCase().includes(search)))
+    return renderNotes(catAndSearch)
+  }
+  else if (filteredCat) {
+    const notesByCat = notes.filter(note => note.category === filteredCat)
+    return renderNotes(notesByCat)
   }
   else if (search) {
     const notesBySearchTerm = notes.filter(note => note.text.toLowerCase().includes(search))
-    return (
-      <div className="notes-list">
-        {notesBySearchTerm.map((note) => {
-          return (
-            <Note
-              key={note.id}
-              id={note.id}
-              text={note.text}
-              date={note.date}
-              category={note.category}
-              deleteNote={deleteNote}
-            />
-          );
-        })}
-        <AddNote addNote={addNote} />
-      </div>
-    );
+    return renderNotes(notesBySearchTerm)
   }
-
   else return (
-    <div className="notes-list">
-      {notes.map((note) => {
-        return (
-          <Note
-            key={note.id}
-            id={note.id}
-            text={note.text}
-            date={note.date}
-            category={note.category}
-            deleteNote={deleteNote}
-          />
-        );
-      })}
-      <AddNote addNote={addNote} />
-    </div>
+    renderNotes(notes)
   );
-
-
 }
